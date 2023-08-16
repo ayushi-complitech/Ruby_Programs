@@ -1,15 +1,15 @@
-def pow(a,b)
-	power = 1
-	for i in 1..b
-		power = power*a
-	end
-	return power
-end
-
+#enter number of your choice
 puts "Enter Base:-"
 base=gets.chomp.to_i
 
 puts "Enter exponent:-"
-expo=gets.chomp.to_i
+exponent=gets.chomp.to_i
 
-puts "The power is #{pow(base,expo)}"
+y = 1
+
+for i in 1..exponent
+  y = base * y #update value of y.
+end
+
+#result is here
+puts "The result is #{y}"
