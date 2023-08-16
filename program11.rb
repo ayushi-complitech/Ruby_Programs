@@ -1,8 +1,9 @@
-arr = [2,3,4]
-product = 1
+#Enter a number to get table of a number
+puts "Enter a number:"
+num = gets.chomp.to_i
+table = 1
 
-arr.each do |element|
-  product *= element
+for i in 1..10
+  table = num * i
+  puts "#{num} * #{i} = #{table}"
 end
-
-puts product
