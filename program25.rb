@@ -1,3 +1,4 @@
+#Find quotient and remainder
 dividend = gets.chomp.to_i
 divisor = gets.chomp.to_i
 
