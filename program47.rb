@@ -3,7 +3,7 @@
 people = {"1" => "Person1", "2" => "Person2", "3" => "Person3"}
 
 keys = people.keys
-values = people["1"],people["2"],people["3"]
+values = people.values
 
 puts "keys = #{keys}"
 puts "values = #{values}"
