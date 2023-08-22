@@ -1,10 +1,10 @@
 #discount percentage
 
 print "Enter marked price : "
-mrp = gets.chomp.to_i
+mrp = gets.chomp.to_f
 
 print "Enter selling price : "
-sell = gets.chomp.to_i
+sell = gets.chomp.to_f
 
 discount = (sell * 100) / mrp
 
