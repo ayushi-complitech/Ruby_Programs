@@ -2,7 +2,6 @@
 
 #take empty array and hash
 sub_name = []
-student_marks = {}
 total_marks = {}
 
 # 5 subject name from user
@@ -28,21 +27,15 @@ end
     marks << subject.to_i
   end
 
-  # Store the student name and marks in the hash
-  student_marks[name] = marks
-
   #total of marks
   total_marks[name] = marks.sum
 
 end
 
-# Print the student mark sheet
-puts "Student Mark Sheet:"
-puts "#{sub_name.join(", ")}"
-student_marks.each do |name, marks|
-  puts "#{name}: #{marks.join(", ")}"
-end
-
+#print the student name, total marks and percentage
 total_marks.each do |key, value|
   puts "#{key} ==> total : #{value} ==> percentage : #{value/5}%"
 end
+
+#sorted hash for ranking
+puts total_marks.sort{|key, value| value[1] <=> key[1]}.to_h
