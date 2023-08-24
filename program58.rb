@@ -1,9 +1,9 @@
 #student marksheet
 
 #take empty array and hash
-student_info = {}
 sub_name = []
 student_marks = {}
+total_marks = {}
 
 # 5 subject name from user
 puts "Subject name : "
@@ -30,13 +30,19 @@ end
 
   # Store the student name and marks in the hash
   student_marks[name] = marks
+
+  #total of marks
+  total_marks[name] = marks.sum
+
 end
 
 # Print the student mark sheet
-@total = 0
-@grand_total = 0
 puts "Student Mark Sheet:"
 puts "#{sub_name.join(", ")}"
 student_marks.each do |name, marks|
   puts "#{name}: #{marks.join(", ")}"
+end
+
+total_marks.each do |key, value|
+  puts "#{key} ==> total : #{value} ==> percentage : #{value/5}%"
 end
