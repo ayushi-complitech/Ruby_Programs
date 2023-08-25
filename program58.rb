@@ -1,52 +1,40 @@
-#student marksheet
+students = {}
 
-#take empty array and hash
-sub_name = []
-student_marks = {}
-total_marks = {}
-
-# 5 subject name from user
-puts "Subject name : "
-5.times do |i|
-  subject = gets.chomp
-  sub_name << subject
+# Take input for student names
+5.times do
+  print "Enter student name: "
+  student_name = gets.chomp
+  students[student_name] = {}
 end
 
-# 5 students name from user with marks
-5.times do |i|
-  puts "Enter the name of student #{i+1}:"
-  name = gets.chomp
+# Take input for subject names
+subjects = []
+5.times do
+  print "Enter subject name: "
+  subject_name = gets.chomp
+  subjects << subject_name
+end
 
-  # empty array to store subject marks
-  marks = []
-
-  puts "Enter the marks for each subject (separated by spaces):"
-  subjects = gets.chomp.split(" ")
-
-  # Convert the marks to integers and store them in the array
+# Take input for marks
+students.each do |student, _|
   subjects.each do |subject|
-    marks << subject.to_i
+    print "Enter marks for #{subject} for #{student}: "
+    marks = gets.chomp.to_i
+    students[student][subject] = marks
   end
-
-  # Store the student name and marks in the hash
-  student_marks[name] = marks
-
-  #total of marks
-  total_marks[name] = marks.sum
-
 end
 
-# Print the student mark sheet
-puts "Student Mark Sheet:"
-puts "#{sub_name.join(", ")}"
-student_marks.each do |name, marks|
-  puts "#{name}: #{marks.join(", ")}"
+# Calculate total marks, percentage, and ranking
+students.each do |student, marks|
+  total_marks = marks.values.sum
+  percentage = (total_marks / 5.0).round(2)
+  ranking = students.keys.sort_by { |s| -students[s].values.sum }.index(student) + 1
+
+  students[student]["Total Marks"] = total_marks
+  students[student]["Percentage"] = percentage
+  students[student]["Ranking"] = ranking
 end
 
-#print the student name, total marks and percentage
-total_marks.each do |key, value|
-  puts "#{key} ==> total : #{value} ==> percentage : #{value/5}%"
+students.each do |key, value|
+  puts "#{key} : #{value} \n"
 end
-
-#sorted hash for ranking
-puts total_marks.sort{|key, value| value[1] <=> key[1]}.to_h
