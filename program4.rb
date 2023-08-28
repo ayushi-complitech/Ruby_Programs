@@ -1,9 +1,29 @@
 #enter number of your choice
-puts "Enter Base:-"
-base=gets.chomp.to_i
+begin
+ puts "Enter Base:-"
+ base=gets.chomp
 
-puts "Enter exponent:-"
-exponent=gets.chomp.to_i
+  # Convert the input to integers
+  base = Integer(base)
+
+  rescue ArgumentError
+  puts "Base must be in integer"
+
+  retry
+end
+
+begin
+  print "Enter exponent: "
+  exponent = gets.chomp
+
+  # Convert the input to integers
+  exponent = Integer(exponent)
+
+  rescue ArgumentError
+  puts "Exponent must be in integer."
+
+  retry
+end
 
 result = base ** exponent
 

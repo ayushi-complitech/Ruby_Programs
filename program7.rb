@@ -1,6 +1,18 @@
 #Check a number is prime or not
-puts "Enter a number:"
-num = gets.chomp.to_i
+
+begin
+  print "Enter a number : "
+  num = gets.chomp
+
+  # Convert the input to integers
+  num = Integer(num)
+
+  rescue ArgumentError
+  puts "You have entered wrong integer number."
+
+  retry
+end
+
 
 def is_prime(num)
   (2..(num - 1)).each do |n|

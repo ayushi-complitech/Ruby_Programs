@@ -1,6 +1,17 @@
 #Enter a number to get table of a number
-puts "Enter a number:"
-num = gets.chomp.to_i
+begin
+  print "Enter a number : "
+  num = gets.chomp
+
+  # Convert the input to integers
+  num = Integer(num)
+
+  rescue ArgumentError
+  puts "You have entered wrong integer number."
+
+  retry
+end
+
 table = 1
 
 for i in 1..10

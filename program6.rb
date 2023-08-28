@@ -1,5 +1,18 @@
 #find factorial number
-num = gets.chomp.to_i
+
+begin
+  print "Enter an integer: "
+  num = gets.chomp
+
+  # Convert the input to integers
+  num = Integer(num)
+
+  rescue ArgumentError
+  puts "You have entered wrong integer number."
+
+  retry
+end
+
 fact = 1
 
 for i in 1..num
@@ -8,4 +21,4 @@ for i in 1..num
   end
 end
 
-puts fact
+puts "Factorial number of #{num} is #{fact}."

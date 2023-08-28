@@ -1,5 +1,16 @@
 #Eligible for vote or not
-age = gets.chomp.to_i
+begin
+  print "Enter an age : "
+  age = gets.chomp
+
+  # Convert the input to integers
+  age = Integer(age)
+
+  rescue ArgumentError
+  puts "You have entered wrong integer number."
+
+  retry
+end
 
 (age >= 18) ? (puts "You are eligible for vote") : (puts "Sorry! you are not eligible for vote");
 #ternary operator
