@@ -1,28 +1,27 @@
-# take an input from user
-print "Enter the first integer: "
-num1 = gets.chomp
-
+# sum of 2 numbers take an input from user
 begin
+  print "Enter the first integer: "
+  num1 = gets.chomp
+
   # Convert the input to integers
   num1 = Integer(num1)
 
   rescue ArgumentError
-  puts "Invalid input. Please enter integers only."
+  puts "You have entered wrong integer number."
 
-  return
+  retry
 end
-
-print "Enter the second integer: "
-num2 = gets.chomp
-
 begin
+  print "Enter the second integer: "
+  num2 = gets.chomp
+
   # Convert the input to integers
   num2 = Integer(num2)
 
   rescue ArgumentError
-  puts "Invalid input. Please enter integers only."
+  puts "You have entered wrong integer number."
 
-  return
+  retry
 end
 
   # Perform the addition operation
