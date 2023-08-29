@@ -61,6 +61,12 @@ while decision != "e" do
   when "w"
     puts "How much would you like to withdraw?"
     amount = gets.chomp.to_i
+
+     if (amount > balance)
+      puts "Insufficient fund"
+      break
+    end
+    
     result = balance - amount
     puts "Your balance is #{result}."
     balance = result
