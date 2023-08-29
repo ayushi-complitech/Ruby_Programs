@@ -35,23 +35,13 @@ begin
   retry
 end
 
-
 #re-confirm atm pin from user
-begin
   print "re-confirm ATM pin : "
   pin2 = gets.chomp
 
-  # Convert the input to integers
-  pin2 = Integer(pin2)
+ #check atm pin and re-confirm pin is same or not
+  (pin == pin2) ? (puts "You have entered correct pin.") : (puts "You have entered correct pin.")
 
-  rescue ArgumentError
-  puts "You have entered wrong integer number."
-
-  retry
-end
-
-#check atm pin and re-confirm pin is same or not
-(pin == pin2) ? (puts "you entered incorrect pin.") : (puts "you entered correct pin.") 
 
 decision = ""
 
