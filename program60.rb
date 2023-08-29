@@ -40,7 +40,7 @@ end
   pin2 = gets.chomp
 
  #check atm pin and re-confirm pin is same or not
-  (pin == pin2) ? (puts "You have entered correct pin.") : (puts "You have entered correct pin.")
+  (pin == pin2) ? (puts "You have entered correct pin.") : (puts "You have entered incorrect pin.")
 
 
 decision = ""
