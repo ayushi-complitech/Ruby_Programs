@@ -25,12 +25,11 @@ begin
   retry
 end
 
-loop do
 #re-confirm atm pin from user
-begin
-  print "re-confirm ATM pin : "
+loop do
+   print "re-confirm ATM pin : "
   pin2 = gets.chomp
-
+begin
   # Convert the input to integers
   pin2 = Integer(pin2)
 
@@ -51,6 +50,7 @@ end
 
 puts "PIN generated."
 
+loop do
 begin
   print "Enter your pin : "
   confirm_pin = gets.chomp
@@ -61,6 +61,15 @@ begin
   rescue ArgumentError
   puts "You have entered wrong integer number."
   retry
+end
+
+if (confirm_pin == pin)
+  puts "you have entered correct pin."
+  break
+else
+  puts "you have entered incorrect pin."
+  redo
+end
 end
 
 decision = ""
