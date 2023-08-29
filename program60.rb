@@ -20,7 +20,11 @@ end
 #set atm pin in integer
 begin
   print "Set ATM pin : "
-  pin = gets.chomp
+  pin = gets.chomp.length
+   while (pin < 4) || (pin > 4)
+      puts "Sorry that pin is incorrect! What is your pin?"
+      pin = gets.chomp.length
+    end
 
   # Convert the input to integers
   pin = Integer(pin)
@@ -30,6 +34,7 @@ begin
 
   retry
 end
+
 
 #re-confirm atm pin from user
 begin
@@ -46,7 +51,7 @@ begin
 end
 
 #check atm pin and re-confirm pin is same or not
-(pin == pin2) ? (puts "you entered correct pin.") : (puts "you entered incorrect pin.")
+(pin == pin2) ? (puts "you entered incorrect pin.") : (puts "you entered correct pin.") 
 
 decision = ""
 
@@ -62,11 +67,11 @@ while decision != "e" do
     puts "How much would you like to withdraw?"
     amount = gets.chomp.to_i
 
-     if (amount > balance)
+    if (amount > balance)
       puts "Insufficient fund"
       break
     end
-    
+
     result = balance - amount
     puts "Your balance is #{result}."
     balance = result
@@ -83,3 +88,4 @@ while decision != "e" do
     puts "Didn't understand your command. Try again." unless decision == "e"
   end
 end
+
