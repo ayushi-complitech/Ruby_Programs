@@ -3,27 +3,18 @@
 print "Enter name : "
 name = gets.chomp.to_s
 
-#Account balance in integer
-begin
+#Account balance from user
  print "Enter balance in account : "
-balance = gets.chomp
+balance = gets.chomp.to_f
 
-  # Convert the input to integers
-  balance = Integer(balance)
-
-  rescue ArgumentError
-  puts "You have entered wrong integer number."
-
-  retry
-end
 
 #set atm pin in integer
 begin
   print "Set ATM pin : "
-  pin = gets.chomp.length
-   while (pin < 4) || (pin > 4)
+  pin = gets.chomp
+   while (pin.length < 4) || (pin.length > 4)
       puts "Sorry that pin is incorrect! What is your pin?"
-      pin = gets.chomp.length
+      pin = gets.chomp
     end
 
   # Convert the input to integers
@@ -31,17 +22,46 @@ begin
 
   rescue ArgumentError
   puts "You have entered wrong integer number."
-
   retry
 end
 
+loop do
 #re-confirm atm pin from user
+begin
   print "re-confirm ATM pin : "
   pin2 = gets.chomp
 
- #check atm pin and re-confirm pin is same or not
-  (pin == pin2) ? (puts "You have entered correct pin.") : (puts "You have entered incorrect pin.")
+  # Convert the input to integers
+  pin2 = Integer(pin2)
 
+  rescue ArgumentError
+  puts "You have entered wrong integer number."
+  retry
+end
+
+
+if (pin == pin2)
+  puts "you have entered correct pin."
+  break
+else
+  puts "you have entered incorrect pin."
+  redo
+end
+end
+
+puts "PIN generated."
+
+begin
+  print "Enter your pin : "
+  confirm_pin = gets.chomp
+
+  # Convert the input to integers
+  confirm_pin = Integer(confirm_pin)
+
+  rescue ArgumentError
+  puts "You have entered wrong integer number."
+  retry
+end
 
 decision = ""
 
@@ -55,24 +75,33 @@ while decision != "e" do
   case decision
   when "w"
     puts "How much would you like to withdraw?"
-    amount = gets.chomp.to_i
+    amount = gets.chomp.to_f
 
     if (amount > balance)
       puts "Insufficient fund"
       break
     end
 
-    result = balance - amount
-    puts "Your balance is #{result}."
-    balance = result
+    if (amount < 0)
+      puts "Amount should be in positive number."
+    else
+      result = (balance - amount).round(2)
+      puts "Your balance is #{result}."
+      balance = result
+    end
     
   when "d"
     puts "How much would you like to deposit?"
-    deposit = gets.chomp.to_i
-    rest = balance + deposit
-    puts "Your balance is #{rest}."
-    balance = rest
-    
+    deposit = gets.chomp.to_f
+
+    if (deposit < 0)
+      puts "Amount should be in positive number."
+    else
+      rest = (balance + deposit).round(2)
+      puts "Your balance is #{rest}."
+      balance = rest
+    end
+       
   else
     # didn't understand the command
     puts "Didn't understand your command. Try again." unless decision == "e"
