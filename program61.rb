@@ -20,6 +20,7 @@ class User
           return pin.to_i
         else
           puts "Pin should be 4 digits long. Please try again."
+          pin = gets.chomp
         end
       end
     end
