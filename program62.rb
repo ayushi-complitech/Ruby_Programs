@@ -13,24 +13,18 @@
     #take year from dob
     year = dob.split('-').first.to_i
 
-    #find year from current date
-    today = Time.new.year
-
-    #calculate age from years
-    age = today - year
-  
   #save info in hash
-  user_info[name] = age
+  user_info[name] = year
   end
   
   #print hash
   puts user_info
 
   #find elder person
-  elder = user_info.key(user_info.values.max)
+ elder = user_info.min_by { |key, value| value }
 
   #find younger person
-  younger = user_info.key(user_info.values.min)
+   younger = user_info.max_by { |key, value| value }
 
   
   puts "Elder person is : #{elder}"
