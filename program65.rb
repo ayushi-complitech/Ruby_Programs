@@ -15,6 +15,10 @@ end
 
 class Marks < Student
   #method override
+  def initialize
+    puts "Hello student!"
+  end
+
   def name
   	puts "Hello Ayushi!!"
   end

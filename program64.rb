@@ -20,7 +20,6 @@ class Marks < Student
   end
 end
 
-Student.new
 info = Marks.new
 
 info.name
