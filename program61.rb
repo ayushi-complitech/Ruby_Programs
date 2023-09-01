@@ -13,15 +13,21 @@ class User
     private
 
     def set_pin
-      loop do
+        begin
         print "Set ATM pin for #{name}: "
         pin = gets.chomp
-        if pin.length == 4
-          return pin.to_i
-        else
-          puts "Pin should be 4 digits long. Please try again."
-          pin = gets.chomp
-        end
+
+           while (pin.length < 4) || (pin.length > 4)
+           puts "Sorry that pin is incorrect! What is your pin?"
+           pin = gets.chomp
+          end
+
+          # Convert the input to integers
+          pin = Integer(pin)
+
+          rescue ArgumentError
+          puts "You have entered wrong integer number."
+          retry
       end
     end
   end
