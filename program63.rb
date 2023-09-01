@@ -5,6 +5,6 @@ class Cat
 end
 
 cat = Cat.new
-cat.meow
-cat.meow
-cat.meow
+3.times do
+  cat.meow
+end
